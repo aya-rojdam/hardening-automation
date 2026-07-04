@@ -44,7 +44,7 @@ Controls carrying operational risk (ICS, cert padding check) have a `warning` fi
 
 ## Tools
 
-`tools/detect-dotnet-version.ps1` — identifies the real .NET Framework patch level by cross-referencing registry keys with installed hotfixes. Solves a real remediation problem: the registry can report 4.8 while 4.8.1 is actually installed, which leads to selecting non-applicable update packages when addressing scanner findings.
+`tools/detect-dotnet-version.ps1` identifies the real .NET Framework patch level by cross-referencing registry keys with installed hotfixes. Solves a real remediation problem: the registry can report 4.8 while 4.8.1 is actually installed, which leads to selecting non-applicable update packages when addressing scanner findings.
 
 ## Extending
 
