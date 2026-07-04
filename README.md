@@ -4,6 +4,22 @@ A config-driven hardening engine for auditing, remediating, and rolling back com
 
 Controls are declared in JSON, not hardcoded. Adding a control means adding an object, not writing code.
 
+## Getting Started
+
+1. **Open PowerShell as Administrator.**
+2. **Set Execution Policy:** Windows restricts local script execution by default. To allow the script to run in your current session, use:
+   ```powershell
+   Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
+   
+3. **Navigate to the repository folder:**
+   ```powershell
+   cd path\to\hardening-automation
+
+4. **Audit your system:**
+   ```powershell
+   .\Invoke-Hardening.ps1 -Mode Audit
+
+
 ## How it works
 
 ```powershell
