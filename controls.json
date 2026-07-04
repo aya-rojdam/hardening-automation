@@ -1,0 +1,34 @@
+{
+  "metadata": {
+    "description": "Hardening controls aligned with CIS Benchmark recommendations",
+    "target": "Windows 10 22H2 workstation",
+    "version": "1.0"
+  },
+  "controls": [
+    { "id": "SVC-001", "name": "Disable SSDP Discovery", "cisSection": "5", "type": "service", "service": "SSDPSRV" },
+    { "id": "SVC-002", "name": "Disable UPnP Device Host", "cisSection": "5", "type": "service", "service": "upnphost" },
+    { "id": "SVC-003", "name": "Disable WMP Network Sharing", "cisSection": "5", "type": "service", "service": "WMPNetworkSvc" },
+    { "id": "SVC-004", "name": "Disable Windows Mobile Hotspot", "cisSection": "5", "type": "service", "service": "icssvc" },
+    { "id": "SVC-005", "name": "Disable Xbox Accessory Management", "cisSection": "5", "type": "service", "service": "XboxGipSvc" },
+    { "id": "SVC-006", "name": "Disable Xbox Live Auth Manager", "cisSection": "5", "type": "service", "service": "XblAuthManager" },
+    { "id": "SVC-007", "name": "Disable Xbox Live Game Save", "cisSection": "5", "type": "service", "service": "XblGameSave" },
+    { "id": "SVC-008", "name": "Disable Xbox Live Networking", "cisSection": "5", "type": "service", "service": "XboxNetApiSvc" },
+    { "id": "SVC-009", "name": "Disable Internet Connection Sharing", "cisSection": "5", "type": "service", "service": "SharedAccess", "warning": "Verify no host routes through this machine before disabling" },
+    { "id": "SVC-010", "name": "Disable RPC Locator", "cisSection": "5", "type": "service", "service": "RpcLocator" },
+
+    { "id": "REG-001", "name": "Disable AutoPlay for non-volume devices", "cisSection": "18", "type": "registry", "path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer", "valueName": "NoAutoplayfornonVolume", "valueType": "DWord", "expectedValue": 1 },
+    { "id": "REG-002", "name": "Disable AutoRun for all drive types", "cisSection": "18", "type": "registry", "path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer", "valueName": "NoDriveTypeAutoRun", "valueType": "DWord", "expectedValue": 255 },
+    { "id": "REG-003", "name": "Disable AutoRun commands", "cisSection": "18", "type": "registry", "path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer", "valueName": "NoAutorun", "valueType": "DWord", "expectedValue": 1 },
+    { "id": "REG-004", "name": "Enforce Authenticode cert padding check (x64)", "cisSection": "18", "type": "registry", "path": "HKLM:\\Software\\Microsoft\\Cryptography\\Wintrust\\Config", "valueName": "EnableCertPaddingCheck", "valueType": "DWord", "expectedValue": 1, "warning": "MSA 2915720 - may break validation of older signed software" },
+    { "id": "REG-005", "name": "Enforce Authenticode cert padding check (WOW64)", "cisSection": "18", "type": "registry", "path": "HKLM:\\Software\\Wow6432Node\\Microsoft\\Cryptography\\Wintrust\\Config", "valueName": "EnableCertPaddingCheck", "valueType": "DWord", "expectedValue": 1 },
+
+    { "id": "FWL-001", "name": "Firewall logging - Domain profile", "cisSection": "9", "type": "firewall-logging", "profile": "Domain", "logFile": "%SystemRoot%\\System32\\logfiles\\firewall\\domainfw.log", "minSizeKB": 16384 },
+    { "id": "FWL-002", "name": "Firewall logging - Private profile", "cisSection": "9", "type": "firewall-logging", "profile": "Private", "logFile": "%SystemRoot%\\System32\\logfiles\\firewall\\privatefw.log", "minSizeKB": 16384 },
+    { "id": "FWL-003", "name": "Firewall logging - Public profile", "cisSection": "9", "type": "firewall-logging", "profile": "Public", "logFile": "%SystemRoot%\\System32\\logfiles\\firewall\\publicfw.log", "minSizeKB": 16384 },
+
+    { "id": "EVT-001", "name": "Application log size >= 32MB", "cisSection": "18", "type": "eventlog", "logName": "Application", "minSizeBytes": 33554432 },
+    { "id": "EVT-002", "name": "Security log size >= 192MB", "cisSection": "18", "type": "eventlog", "logName": "Security", "minSizeBytes": 201326592 },
+    { "id": "EVT-003", "name": "Setup log size >= 32MB", "cisSection": "18", "type": "eventlog", "logName": "Setup", "minSizeBytes": 33554432 },
+    { "id": "EVT-004", "name": "System log size >= 32MB", "cisSection": "18", "type": "eventlog", "logName": "System", "minSizeBytes": 33554432 }
+  ]
+}
