@@ -2,7 +2,7 @@
 
 A config-driven hardening engine for auditing, remediating, and rolling back compliance controls. Built out of real CIS Benchmark remediation work in a vulnerability management workflow (scan → remediate → re-scan → verify).
 
-Controls are declared in JSON, not hardcoded — adding a control means adding an object, not writing code.
+Controls are declared in JSON, not hardcoded, adding a control means adding an object, not writing code.
 
 ## How it works
 
